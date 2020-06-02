@@ -1,0 +1,55 @@
+<head>
+    <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    #myInput {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    }
+    </style>
+</head>
+
+<!-- <form action="{{ url_for('handle_data') }}" method="post">
+    <input type="text" name="projectFilepath">
+</form> -->
+<body>
+
+<script type="text/javascript" src="static/search.js"></script>
+
+<form  method="post">
+    <input type="text" name="projectFilepath" />
+</form>
+
+<button onClick = "sortTable(0)">click me</button>
+
+<table id = "myTable" style = "width:50%">
+    <tr>
+        <th onClick= "sortTable(0)">instanceType</th>
+        <th onclick= "sortTable(1)">vcpu</th>
+        <th onClick= "sortTable(2)">memory</th>
+        <th onclick= "sortTable(3)">storage</th>
+        <th onclick= "sortTable(4)">price</th>
+    </tr>
+
+
+    {% for item in to_send%}
+    <tr>
+        <td>{{to_send[item].instanceType}}</td>
+        <td>{{to_send[item].vcpu}}</td>
+        <td>{{to_send[item].memory}}</td>
+        <td>{{to_send[item].storage}}</td>
+        <td>{{to_send[item].priceDimensions}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+
+    
+
